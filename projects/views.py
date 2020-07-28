@@ -24,26 +24,31 @@ class IndexView(View):
     """
     index主页类视图
     """
+    # def get(self, request):
+    #     # return HttpResponse("<h1>GET请求：hello,Python</h1>")
+    #     datas = [
+    #         {
+    #             'project_name': '前横带',
+    #             'leader': '可有',
+    #             'app_name': 'P2P平台'
+    #         },
+    #         {
+    #             'project_name': '探索火星',
+    #             'leader': '小小',
+    #             'app_name': '吊炸天项目'
+    #         },
+    #         {
+    #             'project_name': '牛逼项目',
+    #             'leader': '疯子',
+    #             'app_name': '神秘应用'
+    #         }
+    #     ]
+    #     return render(request, 'index.html', locals())
+
     def get(self, request):
-        # return HttpResponse("<h1>GET请求：hello,Python</h1>")
-        datas = [
-            {
-                'project_name': '前横带',
-                'leader': '可有',
-                'app_name': 'P2P平台'
-            },
-            {
-                'project_name': '探索火星',
-                'leader': '小小',
-                'app_name': '吊炸天项目'
-            },
-            {
-                'project_name': '牛逼项目',
-                'leader': '疯子',
-                'app_name': '神秘应用'
-            }
-        ]
-        return render(request, 'index.html', locals())
+        # 使用request.GET获取查询字符串参数，返回的是一个类字典对象，支持字典中的所有操作
+        # 使用request.GET.getlist('user') 可以获取多个相同key值的参数
+        return HttpResponse("<h1>GET请求：hello,Python</h1>")
 
     def post(self, request):
         return HttpResponse("<h1>POST请求：hello,Python</h1>")
