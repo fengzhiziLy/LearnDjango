@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from projects.views import index
 
+# 全局路由配置
+# 列表中的一个元素，就代表一个路由
+# 从上到下进行匹配，如果能匹配上，Django会导入和调用path函数第二个参数指定的视图或者去子路由中匹配
+# 如果匹配不上，会自动抛出一个404错误
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('index/', index)
+    path('projects/', include('projects.urls'))
 ]
