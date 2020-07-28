@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -48,7 +48,12 @@ class IndexView(View):
     def get(self, request, pk):
         # 使用request.GET获取查询字符串参数，返回的是一个类字典对象，支持字典中的所有操作
         # 使用request.GET.getlist('user') 可以获取多个相同key值的参数
-        return HttpResponse("<h1>GET请求：hello,Python</h1>")
+        datas = {
+            "name": "疯子",
+            "age": 20
+        }
+        return JsonResponse(data=datas, safe=False)
+        # return HttpResponse("<h1>GET请求：hello,Python</h1>")
 
     def post(self, request):
         # 使用request.POST['name']获取www-form表单参数
