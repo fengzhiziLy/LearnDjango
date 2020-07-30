@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('index/', index)
     # path('projects/', include('projects.urls'))
-    path('', include('projects.urls'))
+    path('', include('projects.urls')),
+    path('api/', include('rest_framework.urls'))
 ]

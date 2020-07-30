@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.views import View
 from projects.models import Projects
 import json
+from projects.serialize import ProjectModelSerializer
+from rest_framework.viewsets import ModelViewSet
 
 
 class ProjectsList(View):
@@ -118,3 +120,7 @@ class ProjectsDetail(View):
 查：查询数据库-->将数据序列化并返回
 """
 
+
+class ProjectViewSet(ModelViewSet):
+    queryset = Projects.objects.all()
+    serializer_class = ProjectModelSerializer
